@@ -18,6 +18,12 @@ window.addEventListener('message', e => {
       id: data.id,
       height: document.getElementsByTagName('html')[0].scrollHeight,
     }, '*');
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sizeBioText);
+    } else {
+      sizeBioText();
+    }
   });
 });
 
@@ -116,6 +122,17 @@ function main() {
       document.head.appendChild(scrollbarWidthStyle);
       scrollbarWidthStyle.sheet.insertRule(`body.with-modals--active { margin-right: ${scrollbarWidth}px; }`, 0);
     }
+
+    [].forEach.call(document.querySelectorAll('[data-component="Card"]'), (content) => {
+      const props = JSON.parse(content.getAttribute('data-props'));
+      ReactDOM.render(<CardContainer locale={locale} {...props} />, content);
+    });
+    
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sizeBioText);
+    } else {
+      sizeBioText();
+    }
   });
 
   delegate(document, '.webapp-btn', 'click', ({ target, button }) => {
@@ -164,6 +181,9 @@ function main() {
       }
     }
   });
+
+
+  delegate(document, '#account_note', 'input', sizeBioText);
 
   delegate(document, '#account_avatar', 'change', ({ target }) => {
     const avatar = document.querySelector('.card .avatar img');
@@ -222,6 +242,20 @@ function main() {
 
     input.readonly = oldReadOnly;
   });
+
+  function sizeBioText() {
+    const noteCounter = document.querySelector('.note-counter');
+    const bioTextArea = document.querySelector('#account_note');
+    
+    if (noteCounter) {
+      noteCounter.textContent = 1000 - length(bioTextArea.value);
+    }
+    
+    if (bioTextArea) {
+      bioTextArea.style.height = 'auto';
+      bioTextArea.style.height = (bioTextArea.scrollHeight+3) + 'px';
+    }
+  }
 }
 
 loadPolyfills().then(main).catch(error => {
