@@ -18,7 +18,7 @@ Space](https://cybre.space)).
 - Increase the display name length from 30 to 48 characters
 ([Interlinked](https://mst3k.interlinked.me)).
 
-- Increase toot length to 2048 chars (adapted from
+- Increase toot length to 1024 chars (adapted from
 [mastodon.host](https://mastodon.host)'s patches).
 
 ## Repository layout
