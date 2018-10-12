@@ -595,7 +595,7 @@ RSpec.describe Account, type: :model do
         expect(account).to model_have_error_on_field(:username)
       end
 
-      it 'is invalid if the display name is longer than 30 characters' do
+      it 'is invalid if the display name is longer than 48 characters' do
         account = Fabricate.build(:account, display_name: Faker::Lorem.characters(31))
         account.valid?
         expect(account).to model_have_error_on_field(:display_name)
@@ -641,7 +641,7 @@ RSpec.describe Account, type: :model do
         expect(account).not_to model_have_error_on_field(:username)
       end
 
-      it 'is valid even if the display name is longer than 30 characters' do
+      it 'is valid even if the display name is longer than 48 characters' do
         account = Fabricate.build(:account, domain: 'domain', display_name: Faker::Lorem.characters(31))
         account.valid?
         expect(account).not_to model_have_error_on_field(:display_name)
