@@ -7,7 +7,7 @@ const redis = require('redis');
 const pg = require('pg');
 const log = require('npmlog');
 const url = require('url');
-const WebSocket = require('uws');
+const WebSocket = require('ws');
 const uuid = require('uuid');
 const fs = require('fs');
 
@@ -538,8 +538,11 @@ const startWorker = (workerId) => {
 
   const wss = new WebSocket.Server({ server, verifyClient: wsVerifyClient });
 
-  wss.on('connection', ws => {
-    const req      = ws.upgradeReq;
+  wss.on('connection', (ws, req) => {
+    // https://github.com/tootsuite/mastodon/issues/7710 and family
+    if (ws.upgradeReq === undefined) {
+        ws.upgradeReq = req;
+    }
     const location = url.parse(req.url, true);
     req.requestId  = uuid.v4();
     req.remoteAddress = ws._socket.remoteAddress;
