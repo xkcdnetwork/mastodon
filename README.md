@@ -21,10 +21,18 @@ Space](https://cybre.space)).
 - Increase toot length to 1024 chars (adapted from
 [mastodon.host](https://mastodon.host)'s patches).
 
+- Use the Node.js `ws` module for handling websocket connections instead of the
+`uws` module, as some people have concerns about source code availability of the
+latter (adapted from the patch presented in [this
+issue](https://github.com/tootsuite/mastodon/issues/7710))
+
+
 ## Repository layout
 
-This repository is organised into the following branches, most of
-which will be rebased at some point or another.
+This repository is organised into the following branches. Note that most or all
+of these branches will be rebased upon major version bumps of upstream Mastodon,
+however the patched versions of the codebase which are run in production will be
+tagged.
 
 - the `upstream` branch tracks upstream tootsuite mastodon development.
 
