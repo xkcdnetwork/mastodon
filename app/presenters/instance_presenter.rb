@@ -55,4 +55,8 @@ class InstancePresenter
   def mascot
     @mascot ||= Rails.cache.fetch('site_uploads/mascot') { SiteUpload.find_by(var: 'mascot') }
   end
+
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
+  end
 end
