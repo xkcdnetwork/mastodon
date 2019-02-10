@@ -20,7 +20,7 @@ sk:
       humane_approach_title: Ľudskejší prístup
       not_a_product_body: Mastodon nie je komerčná sieť. Žiadne reklamy, žiadne dolovanie dát, žiadne múry. Nieje tu žiadna centrálna autorita.
       not_a_product_title: Si človekom, nie produktom
-      real_conversation_body: K dispozícii s 1024 znakmi a podporou pre varovania o obsahu a médiách sa môžeš vyjadriť tak ako budeš chcieť.
+      real_conversation_body: K dispozícii s %{tootlimit} znakmi a podporou pre varovania o obsahu a médiách sa môžeš vyjadriť tak ako budeš chcieť.
       real_conversation_title: Vytvorený pre naozajstnú konverzáciu
       within_reach_body: Viacero aplikácií pre iOS, Android a iné platformy, ktoré ti vďaka jednoduchému API ekosystému dovoľujú byť online so svojimi priateľmi kdekoľvek.
       within_reach_title: Stále v dosahu
