@@ -15,11 +15,12 @@ Space](https://cybre.space)).
 - Increase number of profile metadata tags from 4 to 16
 ([Interlinked](https://mst3k.interlinked.me)).
 
-- Increase the display name length from 30 to 48 characters
-([Interlinked](https://mst3k.interlinked.me)).
+- Increase the display name length from 30 to 64 characters
+(adapted from [Interlinked](https://mst3k.interlinked.me)).
 
 - Increase toot length to 1024 chars (adapted from
-[mastodon.host](https://mastodon.host)'s patches).
+[mastodon.host](https://mastodon.host) and
+[glitch-soc](https://github.com/glitch-soc/mastodon/)'s patches).
 
 - Use the Node.js `ws` module for handling websocket connections instead of the
 `uws` module, as some people have concerns about source code availability of the
